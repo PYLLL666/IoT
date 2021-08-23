@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>门开关日志</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}"/>
+    <script th:src="@{/js/jquery.min.js}" type="text/javascript" charset="UTF-8"></script>
+    <script th:src="@{/js/vue.min.js}" type="text/javascript" charset="UTF-8"></script>
+    <script th:src="@{/layui/layui.js}" type="text/javascript" charset="UTF-8"></script>
+</head>
+
+<body>
+<div th:replace="~{commons/commons::sidebar(active='log.html')}"></div>
+
+<div class="layui-container main" style="margin-left: 250px">
+    <br>
+    <h1>
+        门状态日志
+    </h1>
+    <hr>
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>门状态转换时间</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="doorLog,listStat : ${doorLogList}">
+            <td th:text="${doorLog.getId()}"></td>
+            <td th:text="${doorLog.getTime()}"></td>
+            <td th:text="${doorLog.getStatus()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script>
+
+</script>
+</html>

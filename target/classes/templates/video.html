@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html style="height: 100%;" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=0.1">
+    <title>巡逻车</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}" />
+    <script th:src="@{/js/jquery.min.js}" type="text/javascript" charset="UTF-8"></script>
+    <script th:src="@{/js/vue.min.js}" type="text/javascript" charset="UTF-8"></script>
+    <script th:src="@{/layui/layui.js}" type="text/javascript" charset="UTF-8"></script>
+</head>
+
+
+<body style="margin: 0px; background: #0x00; height: 100%">
+<div th:replace="~{commons/commons::sidebar(active='car.html')}"></div>
+<div class="layui-container main">
+    <img style="-webkit-user-select: none;margin: auto;" src="http://192.168.137.220:8080/">
+</div>
+
+
+</body>
+
+</html>

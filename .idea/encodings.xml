@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/impl/NetWorkBusinessimpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/postDataSet/PostEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/requestEntity/DeviceData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/requestEntity/DeviceElement.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/requestEntity/DeviceHistory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/requestEntity/Page.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/requestEntity/SignInEntity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ActuatorNewestData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/Device.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/DeviceState.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/GateWayEnable.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/GateWayInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/LisItemOfDeviceData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ListItemOfActuator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ListItemOfActuatorHistory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ListItemOfCamera.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ListItemOfDevice.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ListItemOfNewestData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ListItemOfSensor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ListItemOfSensorHistory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/PagerItemActuator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/PagerItemGateWayOnOff.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/PagerItemSensor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/ProjectInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/SensorNewestData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/TargetActuatorInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/TargetCameraInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/TargetSensorInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/base/BasePager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/responseEntity/base/BaseResponseEntity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/util/ApiService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/util/MyObserver.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/util/NetWorkBusiness.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/llp/sdk/util/Tools.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

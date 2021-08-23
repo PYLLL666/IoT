@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>园内环境</title>
+
+		<link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}" />
+		<script th:src="@{/js/jquery.min.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/js/vue.min.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/layui/layui.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/js/echarts.min.js}"></script>
+	</head>
+
+	<body>
+
+	    <div th:replace="~{commons/commons::sidebar(active='campusEnvironment.html')}"></div>
+
+		<div class="layui-container main" style="margin-top: 20px">
+			<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+			<div id="main" style="width: 1200px;height:400px;margin-left:20px"></div>
+		</div>
+	</body>
+	<script th:inline="javascript">
+		function myRefresh()
+		{
+			window.location.reload();
+		}
+
+		setTimeout('myRefresh()',1000*60*1); //指定一分钟刷新一次
+		const chartDom = document.getElementById('main');
+		const myChart = echarts.init(chartDom);
+		let option;
+		const arr1 =[[${arr}]];	//室外温度
+		const arr4 =[[${arr2}]]; //室外湿度
+		const arr3 =[[${arr3}]];	//空气质量
+		const arr2 =[[${minute}]];
+
+		option = {
+			title: {
+				text: '参数折线图'
+			},
+			tooltip: {
+				trigger: 'axis'
+			},
+			legend: {
+				data: ['温度', '空气湿度', '空气质量']
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			toolbox: {
+				feature: {
+					saveAsImage: {}
+				}
+			},
+			xAxis: {
+				type: 'category',
+				boundaryGap: false,
+//      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+				data: [arr2[0], arr2[1], arr2[2],arr2[3],arr2[4],arr2[5],arr2[6], arr2[7], arr2[8],arr2[9],arr2[10],arr2[11],arr2[12], arr2[13], arr2[14],arr2[15],arr2[16],arr2[17],arr2[18], arr2[19]]
+			},
+			yAxis: {
+				type: 'value'
+			},
+
+			series: [
+				{
+					name: '温度',
+					type: 'line',
+					stack: '总量',
+					data: [arr1[0], arr1[1], arr1[2],arr1[3],arr1[4],arr1[5],arr1[6], arr1[7], arr1[8],arr1[9],arr1[10],arr1[11],arr1[12], arr1[13], arr1[14],arr1[15],arr1[16],arr1[17],arr1[18], arr1[19]]
+					//data: [28,30,29,28,29]
+				},
+				{
+					name: '空气湿度',
+					type: 'line',
+					stack: '总量',
+					data: [arr4[0], arr4[1], arr4[2],arr4[3],arr4[4],arr4[5],arr4[6], arr4[7], arr4[8],arr4[9],arr4[10],arr4[11],arr4[12], arr4[13], arr4[14],arr4[15],arr4[16],arr4[17],arr4[18], arr4[19]]
+					//data: [39,41,41,38,35]
+				},
+				{
+					name: '空气质量',
+					type: 'line',
+					stack: '总量',
+					data: [arr3[0], arr3[1], arr3[2],arr3[3],arr3[4],arr3[5],arr3[6], arr3[7], arr3[8],arr3[9],arr3[10],arr3[11],arr3[12], arr3[13], arr3[14],arr3[15],arr3[16],arr3[17],arr3[18], arr3[19]]
+					//data: [25, 25,25,25,25]
+				}
+			]
+		};
+
+		option && myChart.setOption(option);
+
+	</script>
+</html>

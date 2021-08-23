@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>门禁系统</title>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}"/>
+	<script th:src="@{/js/jquery.min.js}" type="text/javascript" charset="UTF-8"></script>
+	<script th:src="@{/js/vue.min.js}" type="text/javascript" charset="UTF-8"></script>
+	<script th:src="@{/layui/layui.js}" type="text/javascript" charset="UTF-8"></script>
+</head>
+
+<body>
+<div th:replace="~{commons/commons::sidebar(active='accessSystem.html')}"></div>
+
+<div class="layui-container main">
+
+	<form class="layui-form" action="">
+		<div class="layui-form-item" style="margin-top: 40px;margin-left: 30px">
+			<table  class="layui-table" style="height: 80px">
+				<tr>
+					<td style="width: 200px;">门状态</td>
+					<td>
+						<input type="checkbox" th:checked="${status}" name="open" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF" onclick="switchs" >
+<!--						<img th:src="${status=='true'?'image/open.jpg':'image/close.jpg'}" id="switchImg" style="margin-left: 600px">-->
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+
+</div>
+</body>
+<script>
+	layui.use(['form'], function(){
+		const form = layui.form
+				, layer = layui.layer;
+		//监听指定开关
+		form.on('switch(switchTest)', function(data){
+			let doorSwitch = this.checked;
+			$.ajax({
+				url:"./accessSystem",   //请求地址
+				type:"post",   //请求方法
+				data:{"doorSwitch":doorSwitch},//序列化表单
+				dataType:"json",   //期待返回的数据类型，也可以理解为请求的数据类型
+				success:function (data) {  //成功时的处理。参数表示返回的数据
+				}
+			});
+
+			layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+				offset: '6px'
+			});
+		});
+	});
+</script>
+</html>

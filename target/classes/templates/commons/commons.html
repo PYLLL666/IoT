@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+
+
+<!--侧边栏-->
+<ul class="layui-nav layui-nav-tree  layui-nav-side" lay-filter="demo" style="margin-right: 10px;" th:fragment="sidebar">
+    <li class="layui-nav-item layui-nav-itemed">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IoT智慧园区信息管理系统
+        <dl class="layui-nav-child">
+            <dd><a th:style="${active=='index.html'?'color:#E38D13 ;':''}"  th:href="@{/index}">首页</a></dd>
+            <dd><a th:style="${active=='car.html'?'color:#E38D13 ;':''}" th:href="@{/car}">小车</a></dd>
+            <dd><a th:style="${active=='lamp.html'?'color:#E38D13 ;':''}" th:href="@{/lamp}">电灯</a></dd>
+            <dd><a th:style="${active=='soilEnvironment.html'?'color:#E38D13 ;':''}" th:href="@{/soilEnvironment}" target="_blank">土壤环境</a></dd>
+            <dd><a th:style="${active=='campusEnvironment.html'?'color:#E38D13 ;':''}" th:href="@{/campusEnvironment}" target="_blank">园内环境</a></dd>
+            <dd><a th:style="${active=='accessSystem.html'?'color:#E38D13 ;':''}" th:href="@{/accessSystem}">门禁系统</a></dd>
+            <dd><a th:style="${active=='log.html'?'color:#E38D13 ;':''}" th:href="@{/log}">园区日志</a></dd>
+        </dl>
+    </li>
+</ul>
+
+
+
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>土壤参数</title>
+
+		<link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}" />
+		<script th:src="@{/js/jquery.min.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/js/vue.min.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/layui/layui.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/js/echarts.min.js}"></script>
+	</head>
+
+	<body>
+
+	    <div th:replace="~{commons/commons::sidebar}"></div>
+
+		<div class="layui-container main">
+			<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+			<div id="main" style="width: 600px;height:400px;"></div>
+		</div>
+	</body>
+	<script th:inline="javascript">
+		function myRefresh()
+		{
+			window.location.reload();
+		}
+
+		setTimeout('myRefresh()',1000*60*10); //指定三分钟刷新一次
+		const chartDom = document.getElementById('main');
+		const myChart = echarts.init(chartDom);
+		let option;
+		const arr1 =[[${arr}]];
+		const arr2 =[[${minute}]];
+
+		option = {
+			title: {
+				text: '折线图堆叠'
+			},
+			tooltip: {
+				trigger: 'axis'
+			},
+			legend: {
+				data: ['温度', '空气湿度', '空气质量']
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			toolbox: {
+				feature: {
+					saveAsImage: {}
+				}
+			},
+			xAxis: {
+				type: 'category',
+				boundaryGap: false,
+//      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+				data: [arr2[0], arr2[1], arr2[2],arr2[3],arr2[4], arr2[5]]
+			},
+			yAxis: {
+				type: 'value'
+			},
+
+			series: [
+				{
+					name: '温度',
+					type: 'line',
+					stack: '总量',
+					data: [arr1[0], arr1[1], arr1[2], arr1[3], arr1[4], arr1[5]]
+				},
+				{
+					name: '空气湿度',
+					type: 'line',
+					stack: '总量',
+					data: [220, 182, 191, 234, 290, 330, 310]
+				},
+				{
+					name: '空气质量',
+					type: 'line',
+					stack: '总量',
+					data: [150, 232, 201, 154, 190, 330, 410]
+				}
+			]
+		};
+
+		option && myChart.setOption(option);
+
+	</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>土壤环境</title>
+
+		<link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}" />
+		<script th:src="@{/js/jquery.min.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/js/vue.min.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/layui/layui.js}" type="text/javascript" charset="UTF-8"></script>
+		<script th:src="@{/js/echarts.min.js}"></script>
+	</head>
+
+	<body>
+
+	    <div th:replace="~{commons/commons::sidebar(active='soilEnvironment.html')}"></div>
+
+		<div class="layui-container main" style="margin-top: 20px">
+			<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+			<div id="main" style="width: 1200px;height:400px;margin-left: 20px"></div>
+
+			<button type="button" class="layui-btn" style="margin-left:1200px;margin-top:-750px" onclick="watering()">浇水按钮</button>
+		</div>
+	</body>
+	<script th:inline="javascript">
+		function myRefresh()
+		{
+			window.location.reload();
+		}
+		function watering(){
+			alert("浇水成功！");
+			let watering = "1";
+			$.ajax({
+				url:"./soilEnvironment",   //请求地址
+				type:"post",   //请求方法
+				data:{"watering":watering},//序列化表单
+				dataType:"json",   //期待返回的数据类型，也可以理解为请求的数据类型
+				success:function (data) {  //成功时的处理。参数表示返回的数据
+				}
+			});
+		}
+
+
+		setTimeout('myRefresh()',1000*60*1); //指定三分钟刷新一次
+		const chartDom = document.getElementById('main');
+		const myChart = echarts.init(chartDom);
+		let option;
+		const arr1 =[[${arr}]];
+		const arr2 =[[${minute}]];
+
+		option = {
+			title: {
+				text: '参数折线图'
+			},
+			tooltip: {
+				trigger: 'axis'
+			},
+			legend: {
+				data: ['土壤湿度']
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			toolbox: {
+				feature: {
+					saveAsImage: {}
+				}
+			},
+			xAxis: {
+				type: 'category',
+				boundaryGap: false,
+//      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+				data: [arr2[0], arr2[1], arr2[2],arr2[3],arr2[4],arr2[5],arr2[6], arr2[7], arr2[8],arr2[9],arr2[10],arr2[11],arr2[12], arr2[13], arr2[14],arr2[15],arr2[16],arr2[17],arr2[18], arr2[19]]
+			},
+			yAxis: {
+				type: 'value'
+			},
+
+			series: [
+				{
+					name: '土壤湿度',
+					type: 'line',
+					stack: '总量',
+					data: [arr1[0], arr1[1], arr1[2],arr1[3],arr1[4],arr1[5],arr1[6], arr1[7], arr1[8],arr1[9],arr1[10],arr1[11],arr1[12], arr1[13], arr1[14],arr1[15],arr1[16],arr1[17],arr1[18], arr1[19]]
+					//data: [37,50,46,40,41]
+				}
+			]
+		};
+		option && myChart.setOption(option);
+	</script>
+</html>

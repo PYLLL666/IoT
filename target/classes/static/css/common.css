@@ -1,0 +1,24 @@
+.tableContent>td:nth-child(1){
+	color: #FF0000; 
+	font-weight: bold;
+}
+.tableContent>td:nth-child(3)>span:nth-child(1){
+	color: #FF0000;
+	font-weight: bold;
+}
+.tableContent>td:nth-child(4){
+	color: #45a01f;
+	font-weight: bold;
+}
+.tableContent>td:nth-child(5){
+	color: #FF0000; 
+}
+.tableContent>td:nth-child(6){
+	color: #FF0000; 
+}
+.tableContent>td:nth-child(7) button{
+	margin-bottom: 0px;margin-top: -6px;
+}
+
+
+
